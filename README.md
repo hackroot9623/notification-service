@@ -168,10 +168,13 @@ notification-service/
 │   ├── controllers/
 │   │   ├── notifications.ts
 │   │   ├── users.ts
+│   ├── middleware/
+│   │   ├── auth.ts
 │   ├── routes/
+│   │   ├── index.ts
 │   │   ├── notifications.ts
 │   │   ├── users.ts
-│   ├── prisma.ts
+│   ├── connections.ts
 │   ├── app.ts
 ├── .env
 ├── package.json
