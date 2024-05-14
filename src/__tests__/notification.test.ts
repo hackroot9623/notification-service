@@ -1,6 +1,5 @@
-// src/__tests__/notification.test.ts
 import request from 'supertest';
-import app from '../server';  // Assume app is exported from server.ts
+import app from '../server';  
 
 describe('Notification API', () => {
   it('should create a notification', async () => {
