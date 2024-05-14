@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { notificationSchema } from '../validators/notificationValidator';
 import db from '../conections';
 
-export const createNotification = async (req: Request, res: Response) => {
+export const createSystemNotification = async (req: Request, res: Response) => {
   try {
     const notificationData = notificationSchema.parse(req.body);
 

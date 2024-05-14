@@ -20,12 +20,11 @@ export const notificationSchema = z.object({
   if (data.deliveryVia === 'SYSTEM') {
     return data.metadata.userId !== undefined;
   }
-  return true;
+  // return true;
 }, {
   message: 'Invalid metadata for the delivery method',
   path: ['metadata'],
 });
-
   
 export const validateNotification = (req: Request, res: Response, next: NextFunction) => {
   try {
