@@ -1,12 +1,12 @@
-import { Request, Response } from 'express';
-import { notificationSchema } from '../validators/notificationValidator';
-import db from '../conections';
+import { Request, Response } from "express";
+import { notificationSchema } from "../validators/notificationValidator";
+import db from "../conections";
 
 export const createSystemNotification = async (req: Request, res: Response) => {
   try {
     const notificationData = notificationSchema.parse(req.body);
 
-    if (notificationData.type === 'BATCH') {
+    if (notificationData.type === "BATCH") {
       const existingBatch = await db.batchNotification.findFirst({
         where: {
           event: notificationData.event,
@@ -23,7 +23,7 @@ export const createSystemNotification = async (req: Request, res: Response) => {
             type: notificationData.type,
             metadata: notificationData.metadata,
             batchNotificationId: existingBatch.id,
-            userId: notificationData.metadata.userId!, 
+            userId: notificationData.metadata.userId!,
           },
         });
       } else {
@@ -47,7 +47,7 @@ export const createSystemNotification = async (req: Request, res: Response) => {
         });
       }
 
-      res.status(201).json({ message: 'Batch notification created/added' });
+      res.status(201).json({ message: "Batch notification created/added" });
     } else {
       const notification = await db.notification.create({
         data: {
@@ -55,38 +55,40 @@ export const createSystemNotification = async (req: Request, res: Response) => {
           deliveryVia: notificationData.deliveryVia,
           type: notificationData.type,
           metadata: notificationData.metadata,
-          userId: notificationData.metadata.userId!, 
+          userId: notificationData.metadata.userId!,
         },
       });
       res.status(201).json(notification);
     }
   } catch (error: any) {
-    console.error('Validation Error:', error);
+    console.error("Validation Error:", error);
     res.status(400).json({ error: error.errors || error.message });
   }
 };
-
-
 
 export const listNotifications = async (req: Request, res: Response) => {
   try {
     const notifications = await db.notification.findMany();
     res.json(notifications);
   } catch (error) {
-    console.error('Error fetching notifications:', error);
-    res.status(500).json({ error: 'An error occurred while fetching notifications' });
+    console.error("Error fetching notifications:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching notifications" });
   }
 };
 
 export const deleteNotification = async (req: Request, res: Response) => {
   const { id } = req.params;
-  
+
   try {
     await db.notification.delete({ where: { id } });
     res.status(204).send();
   } catch (error) {
-    console.error('Error deleting notification:', error);
-    res.status(500).json({ error: 'An error occurred while deleting the notification' });
+    console.error("Error deleting notification:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while deleting the notification" });
   }
 };
 
@@ -105,10 +107,12 @@ export const markAsRead = async (req: Request, res: Response) => {
       });
       res.json(readNotification);
     } else {
-      res.status(404).json({ error: 'Notification not found' });
+      res.status(404).json({ error: "Notification not found" });
     }
   } catch (error) {
-    console.error('Error marking notification as read:', error);
-    res.status(500).json({ error: 'An error occurred while marking notification as read' });
+    console.error("Error marking notification as read:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while marking notification as read" });
   }
 };

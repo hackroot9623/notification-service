@@ -1,8 +1,13 @@
 // src/routes/notifications.ts
-import express from 'express';
-import { listNotifications, deleteNotification, markAsRead, createSystemNotification } from '../controllers/notifications';
-import { validateNotification } from '../validators/notificationValidator';
-import { authenticateToken } from '../middleware/auth';
+import express from "express";
+import {
+  listNotifications,
+  deleteNotification,
+  markAsRead,
+  createSystemNotification,
+} from "../controllers/notifications";
+import { validateNotification } from "../validators/notificationValidator";
+import { authenticateToken } from "../middleware/auth";
 
 export const notificationRouter = express.Router();
 
@@ -30,10 +35,10 @@ export const notificationRouter = express.Router();
  *       200:
  *         description: Notification created
  */
-notificationRouter.post('/', validateNotification, createSystemNotification);
+notificationRouter.post("/", validateNotification, createSystemNotification);
 
-notificationRouter.get('/', listNotifications);
-notificationRouter.delete('/:id', deleteNotification);
-notificationRouter.patch('/:id/read', markAsRead);
+notificationRouter.get("/", listNotifications);
+notificationRouter.delete("/:id", deleteNotification);
+notificationRouter.patch("/:id/read", markAsRead);
 
 // notificationRouter.use(authenticateToken);
