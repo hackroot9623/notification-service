@@ -13,15 +13,9 @@
       "description": "Endpoints related to notifications"
     }
   ],
-  "schemes": [
-    "http"
-  ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/": {
       "post": {
@@ -29,7 +23,7 @@
         "parameters": [
           {
             "name": "Authorization",
-            "in": "header",
+            "in": "token",
             "type": "string"
           }
         ],
