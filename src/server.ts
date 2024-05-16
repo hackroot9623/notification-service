@@ -1,11 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
-import { swaggerSpec } from "./swagger";
+// import { swaggerSpec } from "./swagger";
 import { apiRouter } from "./routes";
 import bodyParser from "body-parser";
-
-const swaggerDocument = require("./swagger-output.json");
+import swaggerDocument from "../src/swagger_output.json";
 
 dotenv.config();
 
@@ -14,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(bodyParser.json());
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/", apiRouter);
 
 app.listen(PORT, () => {
