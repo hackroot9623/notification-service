@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.notificationRouter = void 0;
-// src/routes/notifications.ts
 const express_1 = __importDefault(require("express"));
 const notifications_1 = require("../controllers/notifications");
 const notificationValidator_1 = require("../validators/notificationValidator");
@@ -34,8 +33,7 @@ exports.notificationRouter = express_1.default.Router();
  *       200:
  *         description: Notification created
  */
-exports.notificationRouter.post('/', notificationValidator_1.validateNotification, notifications_1.createNotification);
-exports.notificationRouter.get('/', notifications_1.listNotifications);
-exports.notificationRouter.delete('/:id', notifications_1.deleteNotification);
-exports.notificationRouter.patch('/:id/read', notifications_1.markAsRead);
-exports.notificationRouter.use(auth_1.authenticateToken);
+exports.notificationRouter.post("/", notificationValidator_1.validateNotification, auth_1.authenticateJWT, notifications_1.createSystemNotification);
+exports.notificationRouter.get("/", auth_1.authenticateJWT, notifications_1.listNotifications);
+exports.notificationRouter.delete("/:id", auth_1.authenticateJWT, notifications_1.deleteNotification);
+exports.notificationRouter.patch("/:id/read", auth_1.authenticateJWT, notifications_1.markAsRead);

@@ -7,21 +7,11 @@ export const userRouter = express.Router();
 /**
  * @swagger
  * /users:
- *   post:
- *     summary: Create a user
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               email:
- *                 type: string
+ *   get:
+ *     summary: Obtener todos los usuarios
+ *     description: Obtiene una lista de todos los usuarios registrados.
  *     responses:
  *       200:
- *         description: User created
+ *         description: Lista de usuarios
  */
-// userRouter.post('/', createUser);
-
 userRouter.get("/", authRouter, listUsers);

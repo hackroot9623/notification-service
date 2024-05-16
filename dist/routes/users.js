@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRouter = void 0;
 const express_1 = __importDefault(require("express"));
 const users_1 = require("../controllers/users");
+const auth_1 = __importDefault(require("./auth"));
 exports.userRouter = express_1.default.Router();
 /**
  * @swagger
@@ -25,5 +26,5 @@ exports.userRouter = express_1.default.Router();
  *       200:
  *         description: User created
  */
-exports.userRouter.post('/', users_1.createUser);
-exports.userRouter.get('/', users_1.listUsers);
+// userRouter.post('/', createUser);
+exports.userRouter.get("/", auth_1.default, users_1.listUsers);

@@ -1,11 +1,11 @@
-// src/server.ts
 import express from "express";
 import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./swagger";
 import { apiRouter } from "./routes";
-import db from "./conections";
 import bodyParser from "body-parser";
+
+const swaggerDocument = require("./swagger-output.json");
 
 dotenv.config();
 

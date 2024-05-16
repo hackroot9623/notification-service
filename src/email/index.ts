@@ -1,14 +1,40 @@
 import sgMail from "@sendgrid/mail";
-// import mailgun from 'mailgun-js';
+import nodemailer from "nodemailer";
 
-const emailProvider = process.env.EMAIL_PROVIDER || "sendgrid";
+//Gmail
+const createGmailTransporter = () => {
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
+    },
+    tls: {
+      ciphers: "SSLv3",
+    },
+    requireTLS: true,
+  });
+};
 
+export const sendEmailWithGmail = async (
+  to: string,
+  subject: string,
+  body: string
+) => {
+  const transporter = createGmailTransporter();
+
+  const mailOptions = {
+    from: process.env.GMAIL_USER,
+    to,
+    subject,
+    body,
+  };
+
+  await transporter.sendMail(mailOptions);
+};
+
+// //Sendgrid
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-
-// const mailgunClient = mailgun({
-//   apiKey: process.env.MAILGUN_API_KEY!,
-//   domain: process.env.MAILGUN_DOMAIN!,
-// });
 
 interface EmailData {
   to: string;
@@ -26,24 +52,16 @@ async function sendEmailWithSendGrid({ to, subject, body }: EmailData) {
   await sgMail.send(msg);
 }
 
-// async function sendEmailWithMailgun({ to, subject, body }: EmailData) {
-//   const data = {
-//     from: 'your-email@example.com',
-//     to,
-//     subject,
-//     text: body,
-//   };
-//   await mailgunClient.messages().send(data);
-// }
-
 async function sendEmail({ to, subject, body }: EmailData) {
+  const emailProvider = process.env.EMAIL_PROVIDER;
+
   switch (emailProvider) {
     case "sendgrid":
       await sendEmailWithSendGrid({ to, subject, body });
       break;
-    // case 'mailgun':
-    //   await sendEmailWithMailgun({ to, subject, body });
-    //   break;
+    case "gmail":
+      await sendEmailWithGmail(to, subject, body);
+      break;
     default:
       throw new Error("Unsupported email provider");
   }
