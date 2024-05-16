@@ -1,5 +1,6 @@
-import express from 'express';
-import { createUser, listUsers } from '../controllers/users';
+import express from "express";
+import { listUsers } from "../controllers/users";
+import authRouter from "./auth";
 
 export const userRouter = express.Router();
 
@@ -21,6 +22,6 @@ export const userRouter = express.Router();
  *       200:
  *         description: User created
  */
-userRouter.post('/', createUser);
+// userRouter.post('/', createUser);
 
-userRouter.get('/', listUsers);
+userRouter.get("/", authRouter, listUsers);
