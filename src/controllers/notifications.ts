@@ -17,8 +17,8 @@ export const createSystemNotification = async (req: Request, res: Response) => {
         body: notificationData.metadata.content,
       };
       await emailQueue.add(emailJob);
-      logger.info("Notification created", { notification: notificationData });
-      return res.status(201).json({ message: "Email notification sent" });
+      logger.info("Notificación enviada", { notification: notificationData });
+      return res.status(201).json({ message: "Notificación enviada" });
     }
 
     if (notificationData.type === "BATCH") {
@@ -81,12 +81,12 @@ export const createSystemNotification = async (req: Request, res: Response) => {
         });
       }
 
-      logger.info("Batch notification created/added", {
+      logger.info("Notificacion por bulto creada/registrada", {
         notification: notificationData,
       });
       return res
         .status(201)
-        .json({ message: "Batch notification created/added" });
+        .json({ message: "Notificacion por bulto creada/registrada" });
     }
 
     // For system notifications
@@ -101,9 +101,11 @@ export const createSystemNotification = async (req: Request, res: Response) => {
     });
 
     res.status(201).json(notification);
-    logger.info("Notification created", { notification: notificationData });
+    logger.info("Notificacion creada/registrada", {
+      notification: notificationData,
+    });
   } catch (error: any) {
-    console.error("Validation Error:", error);
+    console.error("Error de Validacion:", error);
     logger.error("Notification not created", { error: error });
     res.status(400).json({ error: error.errors || error.message });
   }
@@ -141,7 +143,8 @@ const processBatch = async (batchId: string) => {
     data: { processed: true },
   });
 
-  logger.info("Batch processed and notification sent", { batchId });
+  logger.info("Notificacion por bulto enviada", { batchId });
+  // console.log(firstNotificationMetadata);
 };
 
 //This is another alternative without the MAX_BATCH_SIZE and MAX_WAIT_TIME_MS

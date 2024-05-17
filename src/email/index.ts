@@ -63,7 +63,7 @@ async function sendEmail({ to, subject, body }: EmailData) {
       await sendEmailWithGmail(to, subject, body);
       break;
     default:
-      throw new Error("Unsupported email provider");
+      throw new Error("El proveedor de email no es correcto");
   }
 }
 

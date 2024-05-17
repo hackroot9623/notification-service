@@ -3,14 +3,14 @@
   "info": {
     "title": "Notification Service API",
     "version": "1.0.0",
-    "description": "API Documentation for the Notification Service"
+    "description": "Documentación de la API para el Servicio de Notificaciones"
   },
   "host": "localhost:3000",
   "basePath": "/",
   "tags": [
     {
       "name": "Notifications",
-      "description": "Endpoints related to notifications"
+      "description": "Endpoints relacionados con las notificaciones"
     }
   ],
   "schemes": ["http"],
@@ -19,49 +19,24 @@
   "paths": {
     "/notifications/": {
       "post": {
-        "description": "Create a new notification",
+        "description": "",
         "parameters": [
           {
             "name": "Authorization",
             "in": "header",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "event": {
-                  "type": "string"
-                },
-                "deliveryVia": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "metadata": {
-                  "type": "object",
-                  "properties": {
-                    "email": {
-                      "type": "string"
-                    },
-                    "content": {
-                      "type": "string"
-                    },
-                    "userId": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "required": ["event", "deliveryVia", "type", "metadata"]
-            }
+            "type": "string"
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/notificationSchema.ts"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Created"
@@ -75,7 +50,7 @@
         }
       },
       "get": {
-        "description": "Get all notifications",
+        "description": "",
         "parameters": [
           {
             "name": "Authorization",
@@ -98,7 +73,7 @@
     },
     "/notifications/{id}": {
       "delete": {
-        "description": "Delete a notification by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -127,7 +102,7 @@
     },
     "/notifications/{id}/read": {
       "patch": {
-        "description": "Mark a notification as read",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -159,7 +134,7 @@
     },
     "/users/": {
       "get": {
-        "description": "Get all users",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -169,7 +144,7 @@
     },
     "/auth/register": {
       "post": {
-        "description": "Register a new user",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -202,7 +177,7 @@
     },
     "/auth/login": {
       "post": {
-        "description": "Login with credentials",
+        "description": "",
         "parameters": [
           {
             "name": "body",

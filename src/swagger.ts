@@ -12,7 +12,7 @@ const swaggerOptions: {
   info: {
     title: "Notification Service API",
     version: "1.0.0",
-    description: "API documentation for the Notification Service",
+    description: "Documentación de la API para el Servicio de Notificaciones",
   },
   host: "localhost:3000",
   basePath: "/",
@@ -22,7 +22,7 @@ const swaggerOptions: {
   tags: [
     {
       name: "Notifications",
-      description: "Endpoints related to notifications",
+      description: "Endpoints relacionados con las notificaciones",
     },
   ],
 };
