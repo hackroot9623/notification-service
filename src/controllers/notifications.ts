@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { notificationSchema } from "../validators/notificationValidator";
-import db from "../conections";
+import db from "../connections";
 import { EmailJobData, NotificationMetadata } from "../types/email";
 import emailQueue from "../queues/emailQueue";
 import logger from "../utils/logger";

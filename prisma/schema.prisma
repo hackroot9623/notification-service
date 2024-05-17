@@ -33,7 +33,7 @@ model Notification {
   read                Boolean            @default(false)
   userId              String
   user                User               @relation(fields: [userId], references: [id])
-  batchNotificationId String?            
+  batchNotificationId String?
   batchNotification   BatchNotification? @relation(fields: [batchNotificationId], references: [id])
 }
 

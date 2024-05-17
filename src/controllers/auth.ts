@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { hashPassword, verifyPassword } from "../utils/hash";
 import { generateToken } from "../utils/jwt";
-import db from "../conections";
+import db from "../connections";
 import logger from "../utils/logger";
 import { userSchema } from "../validators/userValidator";
 

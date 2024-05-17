@@ -2,7 +2,7 @@ import request from "supertest";
 import express from "express";
 import { createSystemNotification } from "../controllers/notifications";
 import emailQueue from "../queues/emailQueue";
-import db from "../conections";
+import db from "../connections";
 import jwt from "jsonwebtoken";
 import { CustomHeaders } from "../types/config";
 

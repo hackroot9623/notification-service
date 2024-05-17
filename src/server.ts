@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
-// import { swaggerSpec } from "./swagger";
 import { apiRouter } from "./routes";
 import bodyParser from "body-parser";
 import swaggerDocument from "../src/swagger_output.json";
@@ -19,15 +18,5 @@ app.use("/", apiRouter);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-// process.on('SIGTERM', async () => {
-//   await db.$disconnect();
-//   process.exit(0);
-// });
-
-// process.on('SIGINT', async () => {
-//   await db.$disconnect();
-//   process.exit(0);
-// });
 
 export default app;
