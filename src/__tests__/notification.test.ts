@@ -1,6 +1,7 @@
 import request from "supertest";
 import express from "express";
 import { createSystemNotification } from "../controllers/notifications";
+import { validateNotification } from "../validators/notificationValidator";
 import emailQueue from "../queues/emailQueue";
 import db from "../connections";
 import jwt from "jsonwebtoken";
@@ -15,7 +16,7 @@ const authMiddleware: express.RequestHandler = (req, res, next) => {
 };
 
 app.use(express.json());
-app.post("/notifications", createSystemNotification);
+app.post("/notifications", validateNotification, createSystemNotification);
 
 jest.mock("../queues/emailQueue");
 

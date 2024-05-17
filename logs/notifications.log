@@ -25,3 +25,15 @@
 {"level":"info","message":"Notificación enviada","notification":{"deliveryVia":"EMAIL","event":"New Email Received","metadata":{"content":"This is the content of the email","email":"recipient@example.com"},"type":"INSTANT"}}
 {"err":{"code":"EAUTH","command":"AUTH PLAIN","response":"535-5.7.8 Username and Password not accepted. For more information, go to\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials 00721157ae682-627777c0d82sm9611447b3.62 - gsmtp","responseCode":535},"level":"error","message":"Task failed"}
 {"level":"info","message":"Usuario any registrado exitosamente","user":"any"}
+{"error":{"issues":[{"code":"invalid_string","message":"Invalid uuid","path":["metadata","userId"],"validation":"uuid"}],"name":"ZodError"},"level":"error","message":"Notification not created"}
+{"error":{"issues":[{"code":"invalid_string","message":"Invalid uuid","path":["metadata","userId"],"validation":"uuid"}],"name":"ZodError"},"level":"error","message":"Notification not created"}
+{"error":{"issues":[{"code":"invalid_string","message":"Invalid uuid","path":["metadata","userId"],"validation":"uuid"}],"name":"ZodError"},"level":"error","message":"Notification not created"}
+{"level":"error","message":"Error al registrar el usuario"}
+{"level":"error","message":"Error al registrar el usuario"}
+{"level":"error","message":"Error al registrar el usuario"}
+{"level":"error","message":"Error al registrar el usuario"}
+{"level":"error","message":"Error al registrar el usuario"}
+{"level":"error","message":"Error al registrar el usuario"}
+{"level":"info","message":"El usuario elieser.santiesteban.1996@gmail.com se ha logueado correctamente","user":"elieser.santiesteban.1996@gmail.com"}
+{"level":"info","message":"Notificación enviada","notification":{"deliveryVia":"EMAIL","event":"New Email Received","metadata":{"content":"This is the content of the email","email":"recipient@example.com"},"type":"INSTANT"}}
+{"err":{"code":"EAUTH","command":"AUTH PLAIN","response":"535-5.7.8 Username and Password not accepted. For more information, go to\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials 71dfb90a1353d-4df7c050c62sm2453216e0c.44 - gsmtp","responseCode":535},"level":"error","message":"Task failed"}

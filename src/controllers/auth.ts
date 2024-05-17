@@ -9,11 +9,11 @@ export const register = async (req: Request, res: Response) => {
   try {
     const { email, pass } = req.body;
 
-    const validationResult = userSchema.safeParse({ email, pass });
+    // const validationResult = userSchema.safeParse({ email, pass });
 
-    if (!validationResult.success) {
-      return res.status(400).json({ message: "Datos de usuario no válidos" });
-    }
+    // if (!validationResult.success) {
+    //   return res.status(400).json({ message: "Datos de usuario no válidos" });
+    // }
 
     const existingUser = await db.user.findUnique({
       where: { email },
@@ -54,11 +54,11 @@ export const login = async (req: Request, res: Response) => {
   try {
     const { email, pass } = req.body;
 
-    const validationResult = userSchema.safeParse({ email, pass });
+    // const validationResult = userSchema.safeParse({ email, pass });
 
-    if (!validationResult.success) {
-      return res.status(400).json({ message: "Datos de usuario no válidos" });
-    }
+    // if (!validationResult.success) {
+    //   return res.status(400).json({ message: "Datos de usuario no válidos" });
+    // }
 
     const user = await db.user.findUnique({
       where: { email },
