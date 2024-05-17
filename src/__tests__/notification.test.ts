@@ -3,8 +3,16 @@ import express from "express";
 import { createSystemNotification } from "../controllers/notifications";
 import emailQueue from "../queues/emailQueue";
 import db from "../conections";
+import jwt from "jsonwebtoken";
+import { CustomHeaders } from "../types/config";
 
 const app = express();
+
+const authMiddleware: express.RequestHandler = (req, res, next) => {
+  const token = jwt.sign({ userId: "user-1" }, "secretkey");
+  (req.headers as CustomHeaders).authorization = `Bearer ${token}`;
+  next();
+};
 
 app.use(express.json());
 app.post("/notifications", createSystemNotification);
@@ -18,6 +26,10 @@ describe("createSystemNotification", () => {
 
   afterAll(async () => {
     await db.$disconnect();
+  });
+
+  beforeEach(() => {
+    app.use(authMiddleware);
   });
 
   afterEach(async () => {

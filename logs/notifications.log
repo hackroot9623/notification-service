@@ -16,3 +16,8 @@
 {"error":{"issues":[{"code":"invalid_string","message":"Invalid uuid","path":["metadata","userId"],"validation":"uuid"}],"name":"ZodError"},"level":"error","message":"Notification not created"}
 {"error":{"issues":[{"code":"invalid_string","message":"Invalid uuid","path":["metadata","userId"],"validation":"uuid"}],"name":"ZodError"},"level":"error","message":"Notification not created"}
 {"error":{"issues":[{"code":"invalid_string","message":"Invalid uuid","path":["metadata","userId"],"validation":"uuid"}],"name":"ZodError"},"level":"error","message":"Notification not created"}
+{"error":{"issues":[{"code":"invalid_string","message":"Invalid uuid","path":["metadata","userId"],"validation":"uuid"}],"name":"ZodError"},"level":"error","message":"Notification not created"}
+{"error":{"issues":[{"code":"invalid_string","message":"Invalid uuid","path":["metadata","userId"],"validation":"uuid"}],"name":"ZodError"},"level":"error","message":"Notification not created"}
+{"level":"info","message":"User elieser.santiesteban.1996@gmail.com logged successfully","user":"elieser.santiesteban.1996@gmail.com"}
+{"level":"info","message":"Notification created","notification":{"deliveryVia":"EMAIL","event":"New Email Received","metadata":{"content":"This is the content of the email","email":"recipient@example.com"},"type":"INSTANT"}}
+{"level":"info","message":"Batch notification created/added","notification":{"deliveryVia":"EMAIL","event":"NewEmail11","metadata":{"content":"This is an email notification content.","email":"elieser.santiesteban.1996@gmail.com","userId":"8e0fd43f-6288-4941-aaab-3b3f7ca5e0a2"},"type":"BATCH"}}
