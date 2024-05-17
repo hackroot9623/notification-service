@@ -1,8 +1,12 @@
 import { Request, Response } from "express";
-import { notificationSchema } from "../validators/notificationValidator";
+import {
+  metadataSchema,
+  notificationSchema,
+} from "../validators/notificationValidator";
 import db from "../conections";
 import { EmailJobData } from "../types/email";
 import emailQueue from "../queues/emailQueue";
+import logger from "../utils/logger";
 
 export const createSystemNotification = async (req: Request, res: Response) => {
   try {
@@ -18,6 +22,7 @@ export const createSystemNotification = async (req: Request, res: Response) => {
         body: notificationData.metadata.content,
       };
       await emailQueue.add(emailJob);
+      logger.info("Notification created", { notification: notificationData });
       res.status(201).json({ message: "Email notification sent" });
     } else {
       if (notificationData.type === "BATCH") {
@@ -65,6 +70,8 @@ export const createSystemNotification = async (req: Request, res: Response) => {
           });
         }
         res.status(201).json({ message: "Batch notification created/added" });
+        console.log(notificationData);
+        logger.info("Notification created", { notification: notificationData });
       } else {
         // For instant notifications or system notifications, create the notification directly
         const notification = await db.notification.create({
@@ -77,6 +84,7 @@ export const createSystemNotification = async (req: Request, res: Response) => {
           },
         });
         res.status(201).json(notification);
+        logger.info("Notification created", { notification: notificationData });
       }
     }
   } catch (error: any) {

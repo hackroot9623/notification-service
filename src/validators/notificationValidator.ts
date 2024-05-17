@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { z } from "zod";
 
-const metadataSchema = z.object({
+export const metadataSchema = z.object({
   email: z.string().email().optional(),
   content: z.string(),
   userId: z.string().uuid().optional(),

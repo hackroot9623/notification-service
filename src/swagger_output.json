@@ -17,7 +17,7 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/": {
+    "/notifications": {
       "post": {
         "description": "",
         "parameters": [
@@ -40,7 +40,7 @@
         }
       },
       "get": {
-        "description": "",
+        "description": "Get All notifications",
         "responses": {
           "200": {
             "description": "OK"
@@ -54,7 +54,7 @@
         }
       }
     },
-    "/{id}": {
+    "/notifications/:id": {
       "delete": {
         "description": "",
         "parameters": [
@@ -83,7 +83,7 @@
         }
       }
     },
-    "/{id}/read": {
+    "/notifications/:id/read": {
       "patch": {
         "description": "",
         "parameters": [
@@ -115,7 +115,7 @@
         }
       }
     },
-    "/register": {
+    "/auth/register": {
       "post": {
         "description": "",
         "parameters": [
@@ -145,7 +145,7 @@
         }
       }
     },
-    "/login": {
+    "/auth/login": {
       "post": {
         "description": "",
         "parameters": [
