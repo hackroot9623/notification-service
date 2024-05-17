@@ -1,6 +1,0 @@
-{"level":"info","message":"Notification created","notification":{"deliveryVia":"EMAIL","event":"NewEmail11","metadata":{"content":"This is an email notification content.","email":"elieser.santiesteban.1996@gmail.com","userId":"f3fdc084-8ed6-4f6f-8ff8-2ff206e505f2"},"type":"BATCH"}}
-{"level":"info","message":"Notification created","notification":{"deliveryVia":"EMAIL","event":"New Email Received","metadata":{"content":"This is the content of the email","email":"recipient@example.com"},"type":"INSTANT"}}
-{"level":"info","message":"Notification created","notification":{"deliveryVia":"EMAIL","event":"NewEmail11","metadata":{"content":"This is an email notification content.","email":"elieser.santiesteban.1996@gmail.com","userId":"f3fdc084-8ed6-4f6f-8ff8-2ff206e505f2"},"type":"BATCH"}}
-{"level":"info","message":"Notification created","notification":{"deliveryVia":"EMAIL","event":"NewEmail11","metadata":{"content":"This is an email notification content.","email":"elieser.santiesteban.1996@gmail.com","userId":"f3fdc084-8ed6-4f6f-8ff8-2ff206e505f2"},"type":"BATCH"}}
-{"level":"info","message":"User calvoclau44@gmail.com logged successfully"}
-{"level":"info","message":"User calvoclau44@gmail.com logged successfully","user":"calvoclau44@gmail.com"}
